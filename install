@@ -1,4 +1,4 @@
-#!$TERMUX_PREFIX/bin/sh
+#!/bin/sh
 
 ################################################################################
 #
@@ -24,6 +24,12 @@ chmod +x composer.phar && mv composer.phar $PREFIX/bin/composer
 git clone git@github.com:Gizra/tip-starter.git
 cd tip-starter/app
 composer install
+cd ~
+
+git clone git@github.com:Gizra/mdr-symfony.git
+cd mdr-symfony/app
+composer install
+cd ~
 
 # symlink `tip` executable to HOME directory.
 ln -s tip-starter/tip .
