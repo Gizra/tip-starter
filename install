@@ -28,3 +28,12 @@ composer install
 # symlink `tip` executable to HOME directory.
 ln -s tip-starter/tip .
 
+# Setup mdr --daemon service script
+mkdir -p $PREFIX/var/service/mdr/log
+cd $PREFIX/var/service
+echo '#!/bin/sh' > mdr/run
+echo 'php -S localhost:8080 -t ~/mdr-git/app/public -c ~/mdr-git/app/custom-php.ini 2>&1' >> mdr/run
+chmod +x mdr/run
+touch mdr/down
+ln -sf $PREFIX/share/termux-services/svlogger mdr/log/run
+
