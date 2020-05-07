@@ -1,4 +1,4 @@
-#!/bin/bash
+#!$TERMUX_PREFIX/bin/sh
 
 ################################################################################
 #
@@ -22,6 +22,9 @@ chmod +x composer.phar && mv composer.phar $PREFIX/bin/composer
 
 # Clone repo
 git clone git@github.com:Gizra/tip-starter.git
+cd tip-starter/app
+composer install
+
 # symlink `tip` executable to HOME directory.
 ln -s tip-starter/tip .
 

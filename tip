@@ -1,0 +1,4 @@
+#!$TERMUX_PREFIX/bin/sh
+
+sv up termux-manager
+sv up mdr-manager
