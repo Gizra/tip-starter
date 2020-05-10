@@ -31,15 +31,23 @@ cd mdr-symfony/app
 composer install
 cd ~
 
-# symlink `tip` executable to HOME directory.
-ln -s tip-starter/tip .
+# Setup mdr --daemon service script
+mkdir -p $PREFIX/var/service/tipd/log
+cd $PREFIX/var/service
+echo '#!/bin/sh' > tipd/run
+echo 'cd ~/tip-starter/app && php -S localhost:1234 -t public -c custom-php.ini 2>&1' >> tipd/run
+chmod +x tipd/run
+touch tipd/down
+ln -sf $PREFIX/share/termux-services/svlogger tipd/log/run
 
 # Setup mdr --daemon service script
-mkdir -p $PREFIX/var/service/mdr/log
+mkdir -p $PREFIX/var/service/mdrd/log
 cd $PREFIX/var/service
-echo '#!/bin/sh' > mdr/run
-echo 'php -S localhost:8080 -t ~/mdr-git/app/public -c ~/mdr-git/app/custom-php.ini 2>&1' >> mdr/run
-chmod +x mdr/run
-touch mdr/down
-ln -sf $PREFIX/share/termux-services/svlogger mdr/log/run
+echo '#!/bin/sh' > mdrd/run
+echo 'cd ~/mdr-symfony/app && php -S localhost:8080 -t public -c custom-php.ini 2>&1' >> mdrd/run
+chmod +x mdrd/run
+touch mdrd/down
+ln -sf $PREFIX/share/termux-services/svlogger mdrd/log/run
 
+# symlink `tip` executable to HOME directory.
+ln -s tip-starter/tip .
