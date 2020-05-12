@@ -31,6 +31,8 @@ cd ~
 git clone https://github.com/Gizra/mdr-symfony.git
 cd mdr-symfony/app
 composer install
+# Prepare DB.
+php bin/console doctrine:migrations:migrate -n
 
 # Setup mdr --daemon service script
 mkdir -p $PREFIX/var/service/tipd/log
