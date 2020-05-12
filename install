@@ -6,10 +6,11 @@
 #
 ################################################################################
 
-pkg install git
-pkg install php
-pkg install sqlite
-pkg install termux-services
+pkg install git --yes
+pkg install openssh --yes
+pkg install php --yes
+pkg install sqlite --yes
+pkg install termux-services --yes
 
 # Download composer, as per instructions from https://getcomposer.org/download/
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
@@ -21,15 +22,15 @@ php -r "unlink('composer-setup.php');"
 chmod +x composer.phar && mv composer.phar $PREFIX/bin/composer
 
 # Clone repo
+cd ~
 git clone git@github.com:Gizra/tip-starter.git
 cd tip-starter/app
 composer install
-cd ~
 
+cd ~
 git clone git@github.com:Gizra/mdr-symfony.git
 cd mdr-symfony/app
 composer install
-cd ~
 
 # Setup mdr --daemon service script
 mkdir -p $PREFIX/var/service/tipd/log
@@ -51,3 +52,5 @@ ln -sf $PREFIX/share/termux-services/svlogger mdrd/log/run
 
 # symlink `tip` executable to HOME directory.
 ln -s tip-starter/tip .
+
+
