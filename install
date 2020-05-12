@@ -21,6 +21,9 @@ php -r "unlink('composer-setup.php');"
 # Move globally.
 chmod +x composer.phar && mv composer.phar $PREFIX/bin/composer
 
+# Install Robo globally.
+composer global require consolidation/robo
+
 # Clone repo
 cd ~
 git clone https://github.com/Gizra/tip-starter.git
