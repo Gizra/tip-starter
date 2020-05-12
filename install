@@ -23,12 +23,12 @@ chmod +x composer.phar && mv composer.phar $PREFIX/bin/composer
 
 # Clone repo
 cd ~
-git clone git@github.com:Gizra/tip-starter.git
+git clone https://github.com/Gizra/tip-starter.git
 cd tip-starter/app
 composer install
 
 cd ~
-git clone git@github.com:Gizra/mdr-symfony.git
+git clone https://github.com/Gizra/mdr-symfony.git
 cd mdr-symfony/app
 composer install
 
