@@ -1,4 +1,4 @@
-#!$TERMUX_PREFIX/bin/sh
+#!/bin/sh
 
 sv up tipd
 sv up mdrd

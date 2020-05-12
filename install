@@ -51,6 +51,7 @@ touch mdrd/down
 ln -sf $PREFIX/share/termux-services/svlogger mdrd/log/run
 
 # symlink `tip` executable to HOME directory.
+cd ~
 ln -s tip-starter/tip .
 
 
