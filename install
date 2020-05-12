@@ -24,7 +24,7 @@ chmod +x composer.phar && mv composer.phar $PREFIX/bin/composer
 # Clone repo
 cd ~
 git clone https://github.com/Gizra/tip-starter.git
-cd tip-starter/app
+cd tip-starter
 composer install
 
 cd ~
@@ -38,7 +38,7 @@ php bin/console doctrine:migrations:migrate -n
 mkdir -p $PREFIX/var/service/tipd/log
 cd $PREFIX/var/service
 echo '#!/bin/sh' > tipd/run
-echo 'cd ~/tip-starter/app && php -S localhost:1234 -t public -c custom-php.ini 2>&1' >> tipd/run
+echo 'cd ~/tip-starter && php -S localhost:1234 -t public -c custom-php.ini 2>&1' >> tipd/run
 chmod +x tipd/run
 touch tipd/down
 ln -sf $PREFIX/share/termux-services/svlogger tipd/log/run
