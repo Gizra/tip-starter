@@ -19,10 +19,10 @@ class RoboFile extends \Robo\Tasks
    * @param string|null $mdrRepoLocation
    *   Optional; The location of the MDR git repo. Defaults to
    */
-  public function createEnv(string $backendUrl, string $accessToken, string $authorityUuid, string $mdrRepoLocation = '~/mdr-symfony') {
+  public function mdrCreateEnv(string $backendUrl, string $accessToken, string $authorityUuid, string $mdrRepoLocation = '~/mdr-symfony') {
     $fileName = '.env.local';
 
-    $this->_exec("cp ./template/.env.local $mdrRepoLocation");
+    $this->_exec("cp ./robo/template/.env.local $mdrRepoLocation");
 
     $this->taskReplaceInFile($mdrRepoLocation . '/' . $fileName)
       ->from([
@@ -36,5 +36,7 @@ class RoboFile extends \Robo\Tasks
         $authorityUuid,
       ])
       ->run();
+
+    return 0;
   }
 }
