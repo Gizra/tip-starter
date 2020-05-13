@@ -11,6 +11,7 @@ pkg install openssh --yes
 pkg install php --yes
 pkg install sqlite --yes
 pkg install termux-services --yes
+pkg install wget --yes
 
 # Download composer, as per instructions from https://getcomposer.org/download/
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
