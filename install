@@ -22,7 +22,8 @@ php -r "unlink('composer-setup.php');"
 chmod +x composer.phar && mv composer.phar $PREFIX/bin/composer
 
 # Install Robo globally.
-composer global require consolidation/robo
+wget http://robo.li/robo.phar
+chmod +x robo.phar && sudo mv robo.phar $PREFIX/bin/robo
 
 # Clone repo
 cd ~
