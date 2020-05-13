@@ -23,7 +23,7 @@ chmod +x composer.phar && mv composer.phar $PREFIX/bin/composer
 
 # Install Robo globally.
 wget http://robo.li/robo.phar
-chmod +x robo.phar && sudo mv robo.phar $PREFIX/bin/robo
+chmod +x robo.phar && mv robo.phar $PREFIX/bin/robo
 
 # Clone repo
 cd ~
