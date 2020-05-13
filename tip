@@ -1,4 +1,5 @@
 #!/bin/sh
 
+termux-wake-lock
 sv up tipd
 sv up mdrd
