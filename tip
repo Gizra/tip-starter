@@ -3,3 +3,4 @@
 termux-wake-lock
 sv up tipd
 sv up mdrd
+termux-open-url http://localhost:8080
