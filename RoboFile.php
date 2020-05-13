@@ -6,5 +6,35 @@
  */
 class RoboFile extends \Robo\Tasks
 {
-    // define public methods as commands
+
+  /**
+   * Create an .env.local file for the MDR repo.
+   *
+   * @param string $backendUrl
+   *   The backend URL.
+   * @param string $accessToken
+   *   The access token for the backend.
+   * @param string $authorityUuid
+   *   The Authority uuid (e.g. a Health-center UUID).
+   * @param string|null $mdrRepoLocation
+   *   Optional; The location of the MDR git repo. Defaults to
+   */
+  public function createEnv(string $backendUrl, string $accessToken, string $authorityUuid, string $mdrRepoLocation = '~/mdr-symfony') {
+    $fileName = '.env.local';
+
+    $this->_exec("cp ./template/.env.local $mdrRepoLocation");
+
+    $this->taskReplaceInFile($mdrRepoLocation . '/' . $fileName)
+      ->from([
+        '{{backend-url}}',
+        '{{access-token}}',
+        '{{authority_uuid}}',
+        ])
+      ->to([
+        $backendUrl,
+        $accessToken,
+        $authorityUuid,
+      ])
+      ->run();
+  }
 }
